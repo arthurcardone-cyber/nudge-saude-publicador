@@ -33,6 +33,32 @@ ITENS = [
     ("2026-11-18T19:00:00-03:00", "2026-11-18-reel-relacoes", "reel", REELS / "06 relacoes.mp4", False),
 ]
 
+# Lote 2 (19/11 a 02/12): post do grid às 12h; às 19h o reel do próprio post, fora do grid.
+# Nos dias em que o post do meio-dia já é reel no grid, o reel das 19h vem da fila antiga.
+LOTE2 = [  # (data, nº slug, tipo do meio-dia, reel das 19h: None = o do próprio post)
+    ("2026-11-19", "29 treino-horario", "carrossel", None),
+    ("2026-11-20", "30 pausas", "imagem", None),
+    ("2026-11-21", "31 um-pe", "reel", "19 caminhada"),
+    ("2026-11-22", "32 alcool", "carrossel", None),
+    ("2026-11-23", "33 inah", "carrossel", None),
+    ("2026-11-24", "34 quatro-testes", "carrossel", None),
+    ("2026-11-25", "35 fim-de-semana", "carrossel", None),
+    ("2026-11-26", "36 anos-que-restam", "reel", "26 check-up"),
+    ("2026-11-27", "37 pausa-trabalho", "carrossel", None),
+    ("2026-11-28", "38 escada", "reel", "27 predimed"),
+    ("2026-11-29", "39 sono-fds", "carrossel", None),
+    ("2026-11-30", "40 voluntariado", "imagem", None),
+    ("2026-12-01", "41 marchand", "carrossel", None),
+    ("2026-12-02", "42 plano-cada-idade", "carrossel", None),
+]
+for data, nome, tipo, reel19 in LOTE2:
+    slug = nome.split(" ", 1)[1]
+    ITENS.append((f"{data}T12:00:00-03:00", f"{data}-{slug}", tipo, pasta(nome), True))
+    if reel19:
+        ITENS.append((f"{data}T19:00:00-03:00", f"{data}-reel-{reel19.split(' ', 1)[1]}", "reel-pasta", pasta(reel19), False))
+    else:
+        ITENS.append((f"{data}T19:00:00-03:00", f"{data}-reel-{slug}", "reel-pasta", pasta(nome), False))
+
 def main():
     agenda = []
     for quando, iid, tipo, origem, grid in ITENS:
@@ -40,8 +66,12 @@ def main():
         if dest.exists():
             shutil.rmtree(dest)
         dest.mkdir(parents=True)
-        it = {"id": iid, "quando": quando, "tipo": tipo, "grid": grid}
-        if tipo in ("carrossel", "imagem"):
+        it = {"id": iid, "quando": quando, "tipo": "reel" if tipo == "reel-pasta" else tipo, "grid": grid}
+        if tipo == "reel-pasta":  # reel fora do grid tirado da pasta de um post (vídeo + capa + legenda do post)
+            shutil.copyfile(origem / "reel-fora-do-grid.mp4", dest / "video.mp4"); shutil.copyfile(origem / "tela-1.jpg", dest / "capa.jpg")
+            it["arquivos"], it["capa"] = [f"midia/{iid}/video.mp4"], f"midia/{iid}/capa.jpg"
+            leg = (origem / "legenda.txt").read_text(encoding="utf-8")
+        elif tipo in ("carrossel", "imagem"):
             telas = sorted(origem.glob("tela-*.jpg"), key=lambda p: int(p.stem.split("-")[1]))
             if tipo == "imagem":
                 telas = telas[:1]

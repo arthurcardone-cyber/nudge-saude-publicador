@@ -1,7 +1,7 @@
 name: publicar
 on:
   schedule:
-    - cron: "*/20 * * * *"   # a cada 20 minutos
+    - cron: "7,27,47 * * * *"   # a cada 20 minutos, fora do minuto cheio
   workflow_dispatch:
     inputs:
       renovar:
