@@ -17,7 +17,8 @@ def pasta(nome):
 
 ITENS = [
     ("2026-11-12T12:00:00-03:00", "2026-11-12-check-up", "carrossel", pasta("26 check-up"), True),
-    ("2026-11-12T19:00:00-03:00", "2026-11-12-reel-folego", "reel", REELS / "09 folego.mp4", False),
+    ("2026-11-11T15:46:00-03:00", "2026-11-11-reel-folego-teste", "reel", REELS / "09 folego.mp4", False),
+    ("2026-11-12T19:00:00-03:00", "2026-11-12-reel-cafe", "reel", REELS / "05 cafe.mp4", False),
     ("2026-11-13T12:00:00-03:00", "2026-11-13-natureza", "carrossel", pasta("25 natureza"), True),
     ("2026-11-13T19:00:00-03:00", "2026-11-13-reel-ultraprocessados", "reel", REELS / "08 ultraprocessados.mp4", False),
     ("2026-11-14T12:00:00-03:00", "2026-11-14-reel-sentar", "reel", pasta("24 reel-sentar"), True),
