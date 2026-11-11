@@ -17,7 +17,9 @@ Uso local:
 import json, os, subprocess, sys, time, urllib.parse, urllib.request
 from datetime import datetime, timedelta, timezone
 
-API = "https://graph.instagram.com/v23.0"
+API = "https://graph.instagram.com/v23.0"   # trocado em detecta() se a chave for do tipo Facebook
+IG_USER_ID = os.environ.get("IG_USER_ID", "17841473088119766")  # @nudge.saude
+TIPO = "instagram"
 BASE = os.environ.get("MIDIA_BASE", "https://arthurcardone-cyber.github.io/nudge-saude-publicador/")
 AQUI = os.path.dirname(os.path.abspath(__file__))
 ATRASO_MAX = timedelta(hours=6)  # não publica nada que passou do horário há mais de 6 h (evita enxurrada)
@@ -91,6 +93,22 @@ def publica(item, uid, tk):
     return mid
 
 
+def detecta(tk):
+    """A chave pode ser do login do Instagram (graph.instagram.com) ou do Facebook/usuário do sistema (graph.facebook.com)."""
+    global API, TIPO
+    try:
+        me = req("GET", "https://graph.instagram.com/v23.0/me?" + urllib.parse.urlencode({"fields": "user_id,username", "access_token": tk}))
+        API, TIPO = "https://graph.instagram.com/v23.0", "instagram"
+        return me["user_id"], me.get("username")
+    except Exception as e1:
+        try:
+            me = req("GET", f"https://graph.facebook.com/v23.0/{IG_USER_ID}?" + urllib.parse.urlencode({"fields": "username", "access_token": tk}))
+            API, TIPO = "https://graph.facebook.com/v23.0", "facebook"
+            return IG_USER_ID, me.get("username")
+        except Exception as e2:
+            raise RuntimeError(f"a chave não funcionou em nenhum dos dois endereços. instagram: {e1} | facebook: {e2}")
+
+
 def main():
     agenda = json.load(open(os.path.join(AQUI, "agenda.json"), encoding="utf-8"))
     pub_path = os.path.join(AQUI, "publicados.json")
@@ -109,9 +127,13 @@ def main():
         print("aguardando o token da Meta (segredo IG_TOKEN); nada a fazer")
         return
     tk = token()
-    uid = req("GET", f"{API}/me?" + urllib.parse.urlencode({"fields": "user_id,username", "access_token": tk}))
-    print("conta:", uid.get("username"))
-    uid = uid["user_id"]
+    uid, nome = detecta(tk)
+    print(f"conta: @{nome}  (chave do tipo {TIPO})")
+    if "--teste" in sys.argv:
+        lim = req("GET", f"{API}/{uid}/content_publishing_limit?" + urllib.parse.urlencode({"fields": "config,quota_usage", "access_token": tk}))
+        print("limite de publicações:", json.dumps(lim))
+        print("TESTE OK: nada foi publicado")
+        return
 
     erros = 0
     for it in sorted(agenda, key=lambda x: x["quando"]):
@@ -132,9 +154,9 @@ def main():
         json.dump(pub, open(pub_path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
     # renova o token uma vez por semana (segunda-feira, na primeira rodada depois das 9h UTC)
-    if os.environ.get("IG_TOKEN_KEY") and agora.weekday() == 0 and 9 <= agora.hour < 10:
+    if TIPO == "instagram" and os.environ.get("IG_TOKEN_KEY") and agora.weekday() == 0 and 9 <= agora.hour < 10:
         renovar(tk)
-    if "--renovar" in sys.argv and os.environ.get("IG_TOKEN_KEY"):
+    if "--renovar" in sys.argv and TIPO == "instagram" and os.environ.get("IG_TOKEN_KEY"):
         renovar(tk)
     sys.exit(1 if erros else 0)
 

@@ -8,6 +8,10 @@ on:
         description: "Renovar o token agora"
         type: boolean
         default: false
+      teste:
+        description: "Só testar a conexão (não publica)"
+        type: boolean
+        default: false
 permissions:
   contents: write
 concurrency:
@@ -25,7 +29,7 @@ jobs:
         env:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
           IG_TOKEN_KEY: ${{ secrets.IG_TOKEN_KEY }}
-        run: python publicar.py ${{ inputs.renovar && '--renovar' || '' }}
+        run: python publicar.py ${{ inputs.renovar && '--renovar' || '' }} ${{ inputs.teste && '--teste' || '' }}
       - name: Guardar o que foi publicado
         if: always()
         run: |
