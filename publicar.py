@@ -22,7 +22,7 @@ IG_USER_ID = os.environ.get("IG_USER_ID", "17841473088119766")  # @nudge.saude
 TIPO = "instagram"
 BASE = os.environ.get("MIDIA_BASE", "https://arthurcardone-cyber.github.io/nudge-saude-publicador/")
 AQUI = os.path.dirname(os.path.abspath(__file__))
-ATRASO_MAX = timedelta(hours=6)  # não publica nada que passou do horário há mais de 6 h (evita enxurrada)
+ATRASO_MAX = timedelta(hours=12)  # não publica nada que passou do horário há mais de 12 h (evita enxurrada)
 
 
 def req(metodo, url, dados=None):
@@ -141,7 +141,7 @@ def main():
         if it["id"] in pub or q > agora:
             continue
         if agora - q > ATRASO_MAX:
-            print(f"pulado (passou do horário há mais de 6 h): {it['id']}")
+            print(f"pulado (passou do horário há mais de 12 h): {it['id']}")
             pub[it["id"]] = {"status": "pulado", "em": agora.isoformat()}
             continue
         try:
