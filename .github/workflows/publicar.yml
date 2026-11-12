@@ -36,4 +36,8 @@ jobs:
           git config user.name "robo-nudge-saude"
           git config user.email "robo@users.noreply.github.com"
           for f in publicados.json token.enc; do [ -f "$f" ] && git add "$f"; done; true
-          git diff --cached --quiet || (git commit -m "registro de publicação" && git push)
+          git diff --cached --quiet && exit 0
+          git commit -m "registro de publicação"
+          # o registro TEM de chegar ao GitHub, senão o post sairia de novo: tenta 5 vezes, juntando com o que mudou lá
+          for i in 1 2 3 4 5; do git pull --rebase -q && git push -q && exit 0; sleep $((i*5)); done
+          echo "ERRO: não consegui salvar o registro de publicação"; exit 1
