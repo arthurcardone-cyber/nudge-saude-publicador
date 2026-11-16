@@ -109,6 +109,37 @@ def detecta(tk):
             raise RuntimeError(f"a chave não funcionou em nenhum dos dois endereços. instagram: {e1} | facebook: {e2}")
 
 
+def salvar_metricas(uid, nome, tk, pub):
+    """Grava metricas.json (números de cada post e da conta) para o painel de marketing. Não publica nada."""
+    caminho = os.path.join(AQUI, "metricas.json")
+    antigo = json.load(open(caminho, encoding="utf-8")) if os.path.exists(caminho) else {}
+    pub_ids = {v["media_id"] for v in pub.values() if v.get("media_id")}
+    midias = req("GET", f"{API}/{uid}/media?" + urllib.parse.urlencode({"fields": "id,caption,media_type,media_product_type,timestamp,permalink,like_count,comments_count", "limit": 100, "access_token": tk})).get("data", [])
+    posts = []
+    for m in midias:
+        p = {"id": m["id"], "data": m.get("timestamp"), "tipo": m.get("media_product_type") or m.get("media_type"),
+             "link": m.get("permalink"), "legenda": (m.get("caption") or "")[:90].replace(chr(10), " "),
+             "curtidas": m.get("like_count"), "comentarios": m.get("comments_count"), "pelo_robo": m["id"] in pub_ids}
+        for met, chave in (("reach", "alcance"), ("views", "visualizacoes"), ("saved", "salvos"), ("shares", "compartilhamentos"), ("follows", "seguiram")):
+            try:
+                r = req("GET", f"{API}/{m['id']}/insights?" + urllib.parse.urlencode({"metric": met, "access_token": tk}))
+                p[chave] = r["data"][0]["values"][0]["value"] if r.get("data") else None
+            except Exception:
+                p[chave] = None
+        posts.append(p)
+    conta = {}
+    try:
+        conta = req("GET", f"{API}/{uid}?" + urllib.parse.urlencode({"fields": "followers_count,media_count", "access_token": tk}))
+    except Exception as e:
+        print("conta: erro", e)
+    hoje = datetime.now(timezone.utc).date().isoformat()
+    historico = [h for h in antigo.get("historico", []) if h.get("dia") != hoje]
+    historico.append({"dia": hoje, "seguidores": conta.get("followers_count"), "posts": conta.get("media_count")})
+    json.dump({"conta": nome, "lido_em": datetime.now(timezone.utc).isoformat(), "seguidores": conta.get("followers_count"),
+               "historico": historico[-400:], "posts": posts}, open(caminho, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    print(f"metricas.json gravado: {len(posts)} posts, {conta.get('followers_count')} seguidores")
+
+
 def main():
     agenda = json.load(open(os.path.join(AQUI, "agenda.json"), encoding="utf-8"))
     pub_path = os.path.join(AQUI, "publicados.json")
@@ -129,6 +160,9 @@ def main():
     tk = token()
     uid, nome = detecta(tk)
     print(f"conta: @{nome}  (chave do tipo {TIPO})")
+    if "--metricas-json" in sys.argv:
+        salvar_metricas(uid, nome, tk, pub)
+        return
     if "--metricas" in sys.argv:
         pub_ids = {v["media_id"]: k for k, v in pub.items() if v.get("media_id")}
         midias = req("GET", f"{API}/{uid}/media?" + urllib.parse.urlencode({"fields": "id,caption,media_type,media_product_type,timestamp,like_count,comments_count", "limit": 50, "access_token": tk})).get("data", [])

@@ -1,0 +1,34 @@
+name: metricas
+# Uma vez por dia grava metricas.json (números dos posts e seguidores) para o painel de marketing.
+# Não publica nada. Fica separado do "publicar" para que uma falha aqui nunca atrapalhe as publicações.
+on:
+  schedule:
+    - cron: "37 9 * * *"   # 6h37 de Brasília
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publicar          # mesma fila do publicador: nunca os dois gravando ao mesmo tempo
+  cancel-in-progress: false
+jobs:
+  metricas:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Puxar os números (não publica)
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          IG_TOKEN_KEY: ${{ secrets.IG_TOKEN_KEY }}
+        run: python publicar.py --metricas-json
+      - name: Guardar os números
+        run: |
+          git config user.name "robo-nudge-saude"
+          git config user.email "robo@users.noreply.github.com"
+          [ -f metricas.json ] && git add metricas.json
+          git diff --cached --quiet && exit 0
+          git commit -m "números dos posts"
+          for i in 1 2 3 4 5; do git pull --rebase -q && git push -q && exit 0; sleep $((i*5)); done
+          echo "ERRO: não consegui salvar os números"; exit 1
