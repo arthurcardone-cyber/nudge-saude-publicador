@@ -129,6 +129,25 @@ def main():
     tk = token()
     uid, nome = detecta(tk)
     print(f"conta: @{nome}  (chave do tipo {TIPO})")
+    if "--metricas" in sys.argv:
+        pub_ids = {v["media_id"]: k for k, v in pub.items() if v.get("media_id")}
+        midias = req("GET", f"{API}/{uid}/media?" + urllib.parse.urlencode({"fields": "id,caption,media_type,media_product_type,timestamp,like_count,comments_count", "limit": 50, "access_token": tk})).get("data", [])
+        print("data | tipo | curtidas | coment. | alcance | views | salvos | compart. | seguiram | robô | início da legenda")
+        for m in midias:
+            ins = {}
+            for met in ("reach", "views", "saved", "shares", "follows"):
+                try:
+                    r = req("GET", f"{API}/{m['id']}/insights?" + urllib.parse.urlencode({"metric": met, "access_token": tk}))
+                    ins[met] = r["data"][0]["values"][0]["value"] if r.get("data") else "-"
+                except Exception as e:
+                    ins[met] = "x"
+            print(f"{m['timestamp'][:16]} | {m.get('media_product_type','')}/{m['media_type']} | {m.get('like_count','-')} | {m.get('comments_count','-')} | {ins['reach']} | {ins['views']} | {ins['saved']} | {ins['shares']} | {ins['follows']} | {'sim' if m['id'] in pub_ids else ''} | {(m.get('caption') or '')[:50].replace(chr(10),' ')}")
+        try:
+            acc = req("GET", f"{API}/{uid}?" + urllib.parse.urlencode({"fields": "followers_count,media_count", "access_token": tk}))
+            print("conta:", acc)
+        except Exception as e:
+            print("conta: erro", e)
+        return
     if "--teste" in sys.argv:
         lim = req("GET", f"{API}/{uid}/content_publishing_limit?" + urllib.parse.urlencode({"fields": "config,quota_usage", "access_token": tk}))
         print("limite de publicações:", json.dumps(lim))

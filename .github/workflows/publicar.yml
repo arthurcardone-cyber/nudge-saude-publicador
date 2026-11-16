@@ -12,6 +12,10 @@ on:
         description: "Só testar a conexão (não publica)"
         type: boolean
         default: false
+      metricas:
+        description: "Só puxar os números dos posts (não publica)"
+        type: boolean
+        default: false
 permissions:
   contents: write
 concurrency:
@@ -29,7 +33,7 @@ jobs:
         env:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
           IG_TOKEN_KEY: ${{ secrets.IG_TOKEN_KEY }}
-        run: python publicar.py ${{ inputs.renovar && '--renovar' || '' }} ${{ inputs.teste && '--teste' || '' }}
+        run: python publicar.py ${{ inputs.renovar && '--renovar' || '' }} ${{ inputs.teste && '--teste' || '' }} ${{ inputs.metricas && '--metricas' || '' }}
       - name: Guardar o que foi publicado
         if: always()
         run: |
