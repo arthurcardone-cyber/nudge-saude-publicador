@@ -1,15 +1,35 @@
 {
  "conta": "nudge.saude",
- "lido_em": "2026-11-16T18:38:27.067390+00:00",
+ "lido_em": "2026-11-17T18:45:10.672170+00:00",
  "seguidores": 27,
  "historico": [
   {
    "dia": "2026-11-16",
    "seguidores": 27,
    "posts": 27
+  },
+  {
+   "dia": "2026-11-17",
+   "seguidores": 27,
+   "posts": 27
   }
  ],
  "posts": [
+  {
+   "id": "17910925860405933",
+   "data": "2026-11-17T02:27:40+0000",
+   "tipo": "REELS",
+   "link": "https://www.instagram.com/reel/Df02yFwgTZa/",
+   "legenda": "11 a 15% de vida a mais, em média, para as pessoas mais otimistas.  Os mais otimistas tive",
+   "curtidas": 1,
+   "comentarios": 0,
+   "pelo_robo": true,
+   "alcance": null,
+   "visualizacoes": null,
+   "salvos": null,
+   "compartilhamentos": null,
+   "seguiram": null
+  },
   {
    "id": "18135429118803541",
    "data": "2026-11-16T16:25:16+0000",
