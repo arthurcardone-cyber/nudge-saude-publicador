@@ -1,6 +1,6 @@
 {
  "conta": "nudge.saude",
- "lido_em": "2026-11-17T18:45:10.672170+00:00",
+ "lido_em": "2026-11-18T18:22:56.942840+00:00",
  "seguidores": 27,
  "historico": [
   {
@@ -12,9 +12,44 @@
    "dia": "2026-11-17",
    "seguidores": 27,
    "posts": 27
+  },
+  {
+   "dia": "2026-11-18",
+   "seguidores": 27,
+   "posts": 28
   }
  ],
  "posts": [
+  {
+   "id": "17989898438886699",
+   "data": "2026-11-18T02:23:32+0000",
+   "tipo": "REELS",
+   "link": "https://www.instagram.com/reel/Df3bGmXgezD/",
+   "legenda": "Trabalhar 55 horas por semana aumenta em 35% o risco de AVC.  A Organização Mundial da Saú",
+   "curtidas": 2,
+   "comentarios": 0,
+   "pelo_robo": true,
+   "alcance": null,
+   "visualizacoes": null,
+   "salvos": null,
+   "compartilhamentos": null,
+   "seguiram": null
+  },
+  {
+   "id": "17978312829139857",
+   "data": "2026-11-17T19:48:34+0000",
+   "tipo": "FEED",
+   "link": "https://www.instagram.com/p/Df2t77fiW93/",
+   "legenda": "Os japoneses têm uma palavra para o motivo de levantar da cama. E ela faz diferença na saú",
+   "curtidas": 2,
+   "comentarios": 0,
+   "pelo_robo": true,
+   "alcance": null,
+   "visualizacoes": null,
+   "salvos": null,
+   "compartilhamentos": null,
+   "seguiram": null
+  },
   {
    "id": "17910925860405933",
    "data": "2026-11-17T02:27:40+0000",
