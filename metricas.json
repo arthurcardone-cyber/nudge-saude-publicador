@@ -1,6 +1,6 @@
 {
  "conta": "nudge.saude",
- "lido_em": "2026-11-19T18:37:46.725286+00:00",
+ "lido_em": "2026-11-20T17:59:38.223925+00:00",
  "seguidores": 27,
  "historico": [
   {
@@ -22,16 +22,51 @@
    "dia": "2026-11-19",
    "seguidores": 27,
    "posts": 30
+  },
+  {
+   "dia": "2026-11-20",
+   "seguidores": 27,
+   "posts": 31
   }
  ],
  "posts": [
+  {
+   "id": "17882903649553393",
+   "data": "2026-11-20T16:56:03+0000",
+   "tipo": "FEED",
+   "link": "https://www.instagram.com/p/Df-ImGYnHSS/",
+   "legenda": "2 a 5 min andando, a cada 20 ou 30 minutos sentado, já seguram o açúcar depois de comer.  ",
+   "curtidas": 2,
+   "comentarios": 0,
+   "pelo_robo": true,
+   "alcance": null,
+   "visualizacoes": null,
+   "salvos": null,
+   "compartilhamentos": null,
+   "seguiram": null
+  },
+  {
+   "id": "17981621789915668",
+   "data": "2026-11-20T00:47:03+0000",
+   "tipo": "REELS",
+   "link": "https://www.instagram.com/reel/Df8ZrX8ifNB/",
+   "legenda": "Treinar de manhã ou à noite: qual é melhor para o sono?  Pesquisadores juntaram 25 estudos",
+   "curtidas": 4,
+   "comentarios": 0,
+   "pelo_robo": true,
+   "alcance": null,
+   "visualizacoes": null,
+   "salvos": null,
+   "compartilhamentos": null,
+   "seguiram": null
+  },
   {
    "id": "18582536299075397",
    "data": "2026-11-19T18:15:38+0000",
    "tipo": "FEED",
    "link": "https://www.instagram.com/p/Df7s6aqidSb/",
    "legenda": "Treinar de manhã ou à noite: qual é melhor para o sono?  Pesquisadores juntaram 25 estudos",
-   "curtidas": 0,
+   "curtidas": 2,
    "comentarios": 0,
    "pelo_robo": true,
    "alcance": null,
@@ -136,7 +171,7 @@
    "tipo": "REELS",
    "link": "https://www.instagram.com/reel/DfyLB9qDZWj/",
    "legenda": "A força da sua mão diz mais sobre o seu coração do que a pressão arterial.  O estudo PURE ",
-   "curtidas": 3,
+   "curtidas": 4,
    "comentarios": 0,
    "pelo_robo": true,
    "alcance": null,
