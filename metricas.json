@@ -1,6 +1,6 @@
 {
  "conta": "nudge.saude",
- "lido_em": "2026-11-20T17:59:38.223925+00:00",
+ "lido_em": "2026-11-21T16:59:03.802579+00:00",
  "seguidores": 27,
  "historico": [
   {
@@ -27,9 +27,29 @@
    "dia": "2026-11-20",
    "seguidores": 27,
    "posts": 31
+  },
+  {
+   "dia": "2026-11-21",
+   "seguidores": 27,
+   "posts": 31
   }
  ],
  "posts": [
+  {
+   "id": "18071001458614013",
+   "data": "2026-11-20T23:04:11+0000",
+   "tipo": "REELS",
+   "link": "https://www.instagram.com/reel/Df-yrTFDk9X/",
+   "legenda": "2 a 5 min andando, a cada 20 ou 30 minutos sentado, já seguram o açúcar depois de comer.  ",
+   "curtidas": 3,
+   "comentarios": 0,
+   "pelo_robo": true,
+   "alcance": null,
+   "visualizacoes": null,
+   "salvos": null,
+   "compartilhamentos": null,
+   "seguiram": null
+  },
   {
    "id": "17882903649553393",
    "data": "2026-11-20T16:56:03+0000",
@@ -66,7 +86,7 @@
    "tipo": "FEED",
    "link": "https://www.instagram.com/p/Df7s6aqidSb/",
    "legenda": "Treinar de manhã ou à noite: qual é melhor para o sono?  Pesquisadores juntaram 25 estudos",
-   "curtidas": 2,
+   "curtidas": 3,
    "comentarios": 0,
    "pelo_robo": true,
    "alcance": null,
