@@ -1,6 +1,6 @@
 {
  "conta": "nudge.saude",
- "lido_em": "2026-11-21T16:59:03.802579+00:00",
+ "lido_em": "2026-11-22T17:23:04.135828+00:00",
  "seguidores": 27,
  "historico": [
   {
@@ -32,9 +32,59 @@
    "dia": "2026-11-21",
    "seguidores": 27,
    "posts": 31
+  },
+  {
+   "dia": "2026-11-22",
+   "seguidores": 27,
+   "posts": 33
   }
  ],
  "posts": [
+  {
+   "id": "18203481985381116",
+   "data": "2026-11-22T15:32:51+0000",
+   "tipo": "FEED",
+   "link": "https://www.instagram.com/p/DgDIpk1F-cb/",
+   "legenda": "Uma taça de vinho por dia não faz você viver mais.  Uma revisão de 2023 juntou 107 estudos",
+   "curtidas": 2,
+   "comentarios": 0,
+   "pelo_robo": true,
+   "alcance": null,
+   "visualizacoes": null,
+   "salvos": null,
+   "compartilhamentos": null,
+   "seguiram": null
+  },
+  {
+   "id": "18172215982477942",
+   "data": "2026-11-22T00:18:38+0000",
+   "tipo": "REELS",
+   "link": "https://www.instagram.com/reel/DgBf_p1kaBy/",
+   "legenda": "O seu ritmo de caminhada diz quanto tempo você pode viver.  Análise de 9 coortes com cerca",
+   "curtidas": 2,
+   "comentarios": 0,
+   "pelo_robo": true,
+   "alcance": null,
+   "visualizacoes": null,
+   "salvos": null,
+   "compartilhamentos": null,
+   "seguiram": null
+  },
+  {
+   "id": "18059824916661487",
+   "data": "2026-11-21T19:50:40+0000",
+   "tipo": "REELS",
+   "link": "https://www.instagram.com/reel/DgBBVuImYUv/",
+   "legenda": "Você consegue ficar 10 segundos num pé só?  Pesquisadores brasileiros testaram 1.702 pesso",
+   "curtidas": 4,
+   "comentarios": 0,
+   "pelo_robo": true,
+   "alcance": null,
+   "visualizacoes": null,
+   "salvos": null,
+   "compartilhamentos": null,
+   "seguiram": null
+  },
   {
    "id": "18071001458614013",
    "data": "2026-11-20T23:04:11+0000",
