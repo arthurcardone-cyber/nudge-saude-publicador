@@ -1,6 +1,6 @@
 {
  "conta": "nudge.saude",
- "lido_em": "2026-11-23T21:40:41.721887+00:00",
+ "lido_em": "2026-11-24T20:20:14.616986+00:00",
  "seguidores": 27,
  "historico": [
   {
@@ -42,9 +42,59 @@
    "dia": "2026-11-23",
    "seguidores": 27,
    "posts": 33
+  },
+  {
+   "dia": "2026-11-24",
+   "seguidores": 27,
+   "posts": 35
   }
  ],
  "posts": [
+  {
+   "id": "18004414707040934",
+   "data": "2026-11-24T18:06:24+0000",
+   "tipo": "FEED",
+   "link": "https://www.instagram.com/p/DgIjz-YFyp8/",
+   "legenda": "4 testes em casa que dizem muito sobre a sua saúde. O 4º quase ninguém faz.  Sente no chão",
+   "curtidas": 2,
+   "comentarios": 0,
+   "pelo_robo": true,
+   "alcance": null,
+   "visualizacoes": null,
+   "salvos": null,
+   "compartilhamentos": null,
+   "seguiram": null
+  },
+  {
+   "id": "18400980961164375",
+   "data": "2026-11-23T22:18:31+0000",
+   "tipo": "REELS",
+   "link": "https://www.instagram.com/reel/DgGbz_elQMn/",
+   "legenda": "Ela nasceu em 1908 e foi a pessoa mais velha do mundo.  Irmã Inah nasceu em 8 de junho de ",
+   "curtidas": 3,
+   "comentarios": 0,
+   "pelo_robo": true,
+   "alcance": null,
+   "visualizacoes": null,
+   "salvos": null,
+   "compartilhamentos": null,
+   "seguiram": null
+  },
+  {
+   "id": "18587005321076061",
+   "data": "2026-11-23T22:17:20+0000",
+   "tipo": "FEED",
+   "link": "https://www.instagram.com/p/DgGbu9zmhax/",
+   "legenda": "Ela nasceu em 1908 e foi a pessoa mais velha do mundo.  Irmã Inah nasceu em 8 de junho de ",
+   "curtidas": 2,
+   "comentarios": 0,
+   "pelo_robo": true,
+   "alcance": null,
+   "visualizacoes": null,
+   "salvos": null,
+   "compartilhamentos": null,
+   "seguiram": null
+  },
   {
    "id": "18053751926812000",
    "data": "2026-11-23T01:55:08+0000",
