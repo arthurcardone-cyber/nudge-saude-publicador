@@ -1,6 +1,6 @@
 {
  "conta": "nudge.saude",
- "lido_em": "2026-11-24T20:20:14.616986+00:00",
+ "lido_em": "2026-11-25T19:35:26.227809+00:00",
  "seguidores": 27,
  "historico": [
   {
@@ -47,9 +47,29 @@
    "dia": "2026-11-24",
    "seguidores": 27,
    "posts": 35
+  },
+  {
+   "dia": "2026-11-25",
+   "seguidores": 27,
+   "posts": 35
   }
  ],
  "posts": [
+  {
+   "id": "18115044947232385",
+   "data": "2026-11-25T02:22:56+0000",
+   "tipo": "REELS",
+   "link": "https://www.instagram.com/reel/DgJcmsvBwGX/",
+   "legenda": "4 testes em casa que dizem muito sobre a sua saúde. O 4º quase ninguém faz.  Sente no chão",
+   "curtidas": 2,
+   "comentarios": 0,
+   "pelo_robo": true,
+   "alcance": null,
+   "visualizacoes": null,
+   "salvos": null,
+   "compartilhamentos": null,
+   "seguiram": null
+  },
   {
    "id": "18004414707040934",
    "data": "2026-11-24T18:06:24+0000",
