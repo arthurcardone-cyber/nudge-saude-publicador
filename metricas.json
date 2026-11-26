@@ -1,6 +1,6 @@
 {
  "conta": "nudge.saude",
- "lido_em": "2026-11-25T19:35:26.227809+00:00",
+ "lido_em": "2026-11-26T19:16:58.404071+00:00",
  "seguidores": 27,
  "historico": [
   {
@@ -52,9 +52,44 @@
    "dia": "2026-11-25",
    "seguidores": 27,
    "posts": 35
+  },
+  {
+   "dia": "2026-11-26",
+   "seguidores": 27,
+   "posts": 36
   }
  ],
  "posts": [
+  {
+   "id": "17918837829512834",
+   "data": "2026-11-26T03:12:33+0000",
+   "tipo": "REELS",
+   "link": "https://www.instagram.com/reel/DgMHE3sMx9n/",
+   "legenda": "Só tem tempo no fim de semana? Já conta.  Pesquisadores acompanharam por cerca de 8 anos 9",
+   "curtidas": 2,
+   "comentarios": 0,
+   "pelo_robo": true,
+   "alcance": null,
+   "visualizacoes": null,
+   "salvos": null,
+   "compartilhamentos": null,
+   "seguiram": null
+  },
+  {
+   "id": "17999286777112787",
+   "data": "2026-11-25T20:42:28+0000",
+   "tipo": "FEED",
+   "link": "https://www.instagram.com/p/DgLad2jjTua/",
+   "legenda": "Só tem tempo no fim de semana? Já conta.  Pesquisadores acompanharam por cerca de 8 anos 9",
+   "curtidas": 3,
+   "comentarios": 0,
+   "pelo_robo": true,
+   "alcance": null,
+   "visualizacoes": null,
+   "salvos": null,
+   "compartilhamentos": null,
+   "seguiram": null
+  },
   {
    "id": "18115044947232385",
    "data": "2026-11-25T02:22:56+0000",
