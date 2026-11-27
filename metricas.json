@@ -1,6 +1,6 @@
 {
  "conta": "nudge.saude",
- "lido_em": "2026-11-26T19:16:58.404071+00:00",
+ "lido_em": "2026-11-27T19:12:35.389680+00:00",
  "seguidores": 27,
  "historico": [
   {
@@ -57,9 +57,44 @@
    "dia": "2026-11-26",
    "seguidores": 27,
    "posts": 36
+  },
+  {
+   "dia": "2026-11-27",
+   "seguidores": 27,
+   "posts": 37
   }
  ],
  "posts": [
+  {
+   "id": "17945327802383323",
+   "data": "2026-11-26T22:18:06+0000",
+   "tipo": "REELS",
+   "link": "https://www.instagram.com/reel/DgOKLugCDVZ/",
+   "legenda": "O check-up geral anual não reduziu mortes.  Uma revisão Cochrane juntou 17 ensaios clínico",
+   "curtidas": 1,
+   "comentarios": 0,
+   "pelo_robo": true,
+   "alcance": null,
+   "visualizacoes": null,
+   "salvos": null,
+   "compartilhamentos": null,
+   "seguiram": null
+  },
+  {
+   "id": "18049473254828332",
+   "data": "2026-11-26T22:16:50+0000",
+   "tipo": "REELS",
+   "link": "https://www.instagram.com/reel/DgOKB3nMRQL/",
+   "legenda": "Quanto tempo de vida ainda resta, em média, em cada idade?  Quem nasceu no Brasil em 2024 ",
+   "curtidas": 2,
+   "comentarios": 0,
+   "pelo_robo": true,
+   "alcance": null,
+   "visualizacoes": null,
+   "salvos": null,
+   "compartilhamentos": null,
+   "seguiram": null
+  },
   {
    "id": "17918837829512834",
    "data": "2026-11-26T03:12:33+0000",
