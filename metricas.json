@@ -1,6 +1,6 @@
 {
  "conta": "nudge.saude",
- "lido_em": "2026-11-27T19:12:35.389680+00:00",
+ "lido_em": "2026-11-28T17:47:59.238261+00:00",
  "seguidores": 27,
  "historico": [
   {
@@ -62,9 +62,44 @@
    "dia": "2026-11-27",
    "seguidores": 27,
    "posts": 37
+  },
+  {
+   "dia": "2026-11-28",
+   "seguidores": 27,
+   "posts": 38
   }
  ],
  "posts": [
+  {
+   "id": "18103981739641700",
+   "data": "2026-11-27T22:51:34+0000",
+   "tipo": "REELS",
+   "link": "https://www.instagram.com/reel/DgQyzIBNa6t/",
+   "legenda": "Levantar da cadeira não basta. O que conta é se mexer.  Pesquisadores dos EUA mediram com ",
+   "curtidas": 1,
+   "comentarios": 0,
+   "pelo_robo": true,
+   "alcance": null,
+   "visualizacoes": null,
+   "salvos": null,
+   "compartilhamentos": null,
+   "seguiram": null
+  },
+  {
+   "id": "18044779397913216",
+   "data": "2026-11-27T22:50:54+0000",
+   "tipo": "FEED",
+   "link": "https://www.instagram.com/p/DgQyxfjETs-/",
+   "legenda": "Levantar da cadeira não basta. O que conta é se mexer.  Pesquisadores dos EUA mediram com ",
+   "curtidas": 3,
+   "comentarios": 0,
+   "pelo_robo": true,
+   "alcance": null,
+   "visualizacoes": null,
+   "salvos": null,
+   "compartilhamentos": null,
+   "seguiram": null
+  },
   {
    "id": "17945327802383323",
    "data": "2026-11-26T22:18:06+0000",
